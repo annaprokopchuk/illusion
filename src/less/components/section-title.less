@@ -18,6 +18,7 @@
   &__breadcrumbs {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     &__item {
       padding: 8px 4px;
       display: flex;
@@ -35,6 +36,13 @@
     }
     &__link {
       padding-right: 8px;
+    }
+  }
+}
+@media (max-width: 540px) { 
+  .section-title {
+    &__header {
+      font-size: 40px;
     }
   }
 }
