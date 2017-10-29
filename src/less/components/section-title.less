@@ -1,0 +1,40 @@
+@import 'variables.less';
+.section-title {
+  background: linear-gradient(to left, #35eef6 0%, #7c28b1 100%);
+  color: @white-color;
+  font-weight: @font-size-light;
+  box-sizing: border-box;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 180px;
+  }
+  &__header {
+    font-size: 60px;
+    font-weight: 300;
+  }
+  &__breadcrumbs {
+    display: flex;
+    align-items: center;
+    &__item {
+      padding: 8px 4px;
+      display: flex;
+      &:after {
+        width: 8px;
+        height: 14px;
+        background: url(../images/sprites.png), no-repeat;
+        background-position: 126px 205px;
+        display: block;
+        content: "";
+      }
+      &:last-child:after {  
+        content: none;
+      }
+    }
+    &__link {
+      padding-right: 8px;
+    }
+  }
+}

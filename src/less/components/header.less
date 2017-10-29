@@ -1,0 +1,220 @@
+@import 'variables.less';
+header {
+  position: relative;
+  z-index: 2;
+}
+.navbar-wrap {
+  position: relative;
+  background: @white-color;
+  height: 100px;
+  z-index: 9999;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: @font-size-m;
+  &__logo {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__item {
+      position: relative;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid;
+      border-color: transparent;
+      &:after {
+        width: 14px;
+        height: 10px;
+        background: url(../images/sprites.png), no-repeat;
+        background-position: 4px 3px;
+        display: block;
+        content: "";
+      }
+      
+    }
+    &__link {
+      padding: 10px;
+    }
+    &__submenu{
+      position: absolute;
+      top: 100px;
+      display: none;
+      background: #fff;
+      width: 240px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      border: 1px solid;
+      border-color: @light-color;
+      &__item {
+        padding: 10px;
+        border-top: 1px solid;
+        border-color: @light-color;
+        width: 100%;
+        &:first-child {
+          border: none;
+        }
+      }
+    }
+    .modify:after {
+      background: url(../images/sprites.png), no-repeat;
+      background-position: 4px 3px;
+    }
+  }
+  &__search {
+    border-radius: 50%;
+    border: 1px solid;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: @light-color;
+    min-height: 43px;
+    position: relative;
+    margin-left: 15px;
+  }
+  .menu-hover:hover, .submenu-hover:hover, .modify:hover {
+    color: @primari-color;
+    background: @lighter-color;
+  }
+  .navbar__nav__item:hover .navbar__nav__submenu {
+    display: flex;
+  }
+  .navbar__nav__item:hover .submenu__wrap {
+    display: none;
+  }
+  .navbar__nav__item {
+    .submenu__wrap {
+      top: -1px;
+      left: 240px;
+    }
+    .modify {
+      position: relative;
+    } 
+    .modify:hover .submenu__wrap{
+      display: flex;
+    }
+  }
+  .menu-border:hover, .menu-border:focus, .menu-border:active {
+    border-bottom: 2px solid;
+    border-color: @primari-color;
+  }
+  .navbar__nav__item:hover:after {
+    background-position: -45px 3px;
+  }
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  } 
+  &__search__img {
+    position: relative;
+    width: 19px;
+    height: 19px;
+  }
+  &__search__submit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    background: transparent;
+    cursor: pointer;
+  }
+  &__search__input {
+    position: absolute;
+    right: 0;
+    top: 44px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @light-color;
+    padding: 5px;
+    display: none;
+    font-size: @font-size-xs;
+  }
+  &__toggler {
+    display: none;
+  }
+  
+}
+.navbar__nav__item:hover, .navbar__search:hover {
+  border-color: @primari-color;
+}
+.navbar__search:hover .navbar__search__input, 
+.navbar__search:active .navbar__search__input, 
+.navbar__search:focus .navbar__search__input {
+  display: flex;
+}
+
+
+
+@media (max-width: 750px) { 
+  .navbar__toggler {
+    display: block;
+    fill: @primari-color;
+  }
+  .navbar .navigation  {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    background: #fff;
+    border-bottom: 1px solid;
+  }
+  .navbar .is-show {
+    display: block;
+  }
+  .navbar__nav {
+    display: block;
+    background: @white-color;
+    &__submenu {
+      position: static;
+      width: 100%;
+    }
+    .submenu__wrap {
+      text-align: right;
+    }
+    &__item {
+      display: block;
+      min-height: auto;
+      border-bottom: 1px solid;
+      border-color: @light-color;
+      &:after {
+        position: absolute;
+        top: 3px;
+        left: 0px;
+      }
+    }
+    &__link {
+      display: block;
+      text-align: right;
+    }
+  }
+  .navbar__search {
+    margin: 10px 10px 10px auto;
+    &__input {
+      top: 7px;
+      right: 55px;
+    }
+  }
+  
+}
+@media (max-width: 540px) { 
+  .navbar .navigation  {
+    width: 100%;
+  }
+}

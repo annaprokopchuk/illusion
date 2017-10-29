@@ -1,0 +1,101 @@
+@import 'variables.less';
+
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 13px;
+
+
+  .tabs {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid;
+    border-color: @light-color;
+    font-size: @font-size-xs;
+    &__item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-right: 1px solid;
+      border-color: @light-color;
+      &:last-child {
+        border: none;
+      }
+      
+    }
+    &__link {
+      padding: 10px 30px; 
+    }
+    &__item:hover, &__item:active, &__item:focus, .active {
+      background-color: @primari-color;
+      color: @white-color;
+    }
+  }
+}
+
+@media (max-width: 577px) { 
+  .tabs-wrapper {
+    .tabs {
+      border: none;
+      flex-wrap: wrap;
+      
+      .tabs__item {
+        border: 1px solid;
+        border-color: #000;
+        margin-bottom: 15px;
+        flex-grow: 1;
+        border-left: none;
+        border-color: @light-color; 
+      }
+      .tabs__item:last-child, .tabs__item:first-child {
+        border-left: 1px solid;
+        border-color: @light-color; 
+      }
+    }
+  }
+}
+
+@media (max-width: 486px) {
+  .tabs-wrapper {
+    .tabs {
+      .tabs__item:nth-child(4) {
+        border-left: 1px solid;
+        border-color: @light-color; 
+      }
+      .tabs__item:last-child {
+        border-left: none;
+      }
+    }
+  }
+} 
+
+@media (max-width: 346px) {
+  .tabs-wrapper {
+    .tabs {
+      .tabs__item:nth-child(3), .tabs__item:last-child {
+        border-left: 1px solid;
+        border-color: @light-color; 
+      }
+      .tabs__item:nth-child(4) {
+        border-left: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 329px) {
+  .tabs-wrapper {
+    .tabs {
+      .tabs__item:nth-child(4) {
+        border-left: 1px solid;
+        border-color: @light-color; 
+      }
+      .tabs__item:last-child {
+        border-left: none;
+      }
+    }
+  }
+}
