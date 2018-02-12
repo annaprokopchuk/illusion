@@ -341,4 +341,18 @@ jQuery(document).ready(function($) {
 
   $("#sticker").sticky({topSpacing:0});
 
+  function hover() {
+    $('[data-hover]')
+    .on('mouseenter', function() {
+        var parent = $(this).data('hover');
+      $(this).closest(parent).addClass('is-hover');
+    })
+    .on('mouseleave', function() {
+        var parent = $(this).data('hover');
+      $(this).closest(parent).removeClass('is-hover');
+    })
+  }
+
+
+  hover();
 });
